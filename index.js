@@ -7,6 +7,9 @@ require('dotenv/config');
 const Post = require('./Post');
 mongo = require('mongodb')
 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 //get all posts
 app.get('/get', async (req, res)=> {
     try{
