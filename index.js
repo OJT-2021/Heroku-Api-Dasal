@@ -6,6 +6,8 @@ const mongoose = require('mongoose');
 const Post = require('./Post');
 mongo = require('mongodb')
 
+require('dotenv/config');
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
