@@ -21,7 +21,7 @@ app.get('/get', async (req, res)=> {
     }
 });
 
-/*app.post('/', async (req, res)=>{
+app.post('/', async (req, res)=>{
     const post = new Post({
         lastName: req.body.lastName,
         firstName: req.body.firstName,
@@ -60,9 +60,9 @@ app.patch('/update/:id', function (req, res) {
     }).catch(error =>{
         res.status(500).send();
     })
-});*/
+});
 
-app.mongoose.connect(process.env.DB_CONNECTIONS,
+mongoose.connect(process.env.DB_CONNECTIONS,
     { useNewUrlParser: true, useUnifiedTopology: true },    
     () => console.log('connected to database')
 );
