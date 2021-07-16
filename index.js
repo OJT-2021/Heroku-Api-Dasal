@@ -62,7 +62,7 @@ app.patch('/update/:id', function (req, res) {
     })
 });*/
 
-mongoose.connect(process.env.DB_CONNECTIONS,
+app.mongoose.connect(process.env.DB_CONNECTIONS,
     { useNewUrlParser: true, useUnifiedTopology: true },    
     () => console.log('connected to database')
 );
