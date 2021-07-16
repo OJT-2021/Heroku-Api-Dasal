@@ -21,7 +21,7 @@ app.get('/get', async (req, res)=> {
 });
 
 //get specific post
-router.get('/:postID', async (req, res)=>{
+app.get('/:postID', async (req, res)=>{
     try{
         const post = await Post.findById(req.params.postID);
         res.json(post);
