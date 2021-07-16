@@ -33,7 +33,7 @@ app.get('/:postID', async (req, res)=>{
     }
 });
 
-app.post('/', async (req, res)=>{
+app.post('/posts', async (req, res)=>{
     const post = new Post({
         lastName: req.body.lastName,
         firstName: req.body.firstName,
