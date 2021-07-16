@@ -3,7 +3,6 @@ const app = express();
 const bodyParser = require('body-parser');
 const { json } = require('body-parser');
 const mongoose = require('mongoose');
-require('dotenv/config');
 const Post = require('./Post');
 mongo = require('mongodb')
 
@@ -18,6 +17,17 @@ app.get('/get', async (req, res)=> {
     }
     catch (err){
         res.json({message: err});
+    }
+});
+
+//get specific post
+router.get('/:postID', async (req, res)=>{
+    try{
+        const post = await Post.findById(req.params.postID);
+        res.json(post);
+    }
+    catch (err){
+        res.json({message:err});
     }
 });
 
