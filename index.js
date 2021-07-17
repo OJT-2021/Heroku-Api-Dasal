@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //get all posts
-app.get('/get', async (req, res)=> {
+app.get('/', async (req, res)=> {
     try{
         const posts = await Post.find();
         res.json(posts); 
