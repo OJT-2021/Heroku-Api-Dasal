@@ -53,7 +53,7 @@ app.post('/posts', async (req, res)=>{
   }
 });
 
-app.post('/user/create', async (req, res)=>{
+app.post('/createuser', async (req, res)=>{
     const user = new User({
         userName: req.body.userName,
         password: req.body.password
