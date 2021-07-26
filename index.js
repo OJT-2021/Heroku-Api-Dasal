@@ -53,13 +53,12 @@ app.post('/posts', async (req, res)=>{
   }
 });
 
+//create user
 app.post('/createuser', async (req, res)=>{
-    const user = new User({
-        userName: req.body.userName,
-        password: req.body.password
-    });
   try{
-      const saveUser = await user.save();
+   const hashedPassword = await bcrypt.hash(req.body.password, 10)
+   const user = new User({ userName: req.body.userName, password: hashedPassword });
+    const saveUser = await user.save();
       res.json(saveUser);
   }
   catch (err){
