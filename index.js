@@ -54,11 +54,13 @@ app.post('/posts', async (req, res)=>{
 });
 
 app.post('/createuser', async (req, res)=>{
-    const user = new User({
+    const User = new User({
         userName: req.body.userName,
         password: req.body.password
     });
   try{
+      const hashedPassword = await bcrypt.hash(req.body.password, 10)
+      const user = { userName: req.body.userName, password: hashedPassword }
       const saveUser = await user.save();
       res.json(saveUser);
   }
@@ -135,7 +137,7 @@ app.post('/users/login', async (req, res) => {
     } catch {
       res.status(500).send()
     }
-})
+})*/
 
 function authenticateToken(req, res, next) {
     const authHeader = req.headers['authorization']
@@ -148,7 +150,7 @@ function authenticateToken(req, res, next) {
       req.user = user
       next()
     })
-  }*/
+  }
 
 mongoose.connect(process.env.DB_CONNECTIONS,
     { useNewUrlParser: true, useUnifiedTopology: true },    
